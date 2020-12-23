@@ -3,17 +3,25 @@ import CreateUserService from '../services/CreateUserService';
 
 const usersRouter = Router();
 
+interface UserReturn {
+  name: string;
+  email: string;
+  password?: string;
+}
+
 usersRouter.post('/', async (request, response) => {
   try {
     const { name, email, password } = request.body;
 
     const createUser = new CreateUserService();
 
-    const user = await createUser.execute({
+    const user: UserReturn = await createUser.execute({
       name,
       email,
       password,
     });
+
+    delete user.password;
 
     return response.json(user);
   } catch (err) {
