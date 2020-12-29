@@ -1,13 +1,8 @@
 import { Router } from 'express';
+import UserLoginParamsReturn from '../config/userLoginParamsReturn';
 import CreateUserService from '../services/CreateUserService';
 
 const usersRouter = Router();
-
-interface UserReturn {
-  name: string;
-  email: string;
-  password?: string;
-}
 
 usersRouter.post('/', async (request, response) => {
   try {
@@ -15,7 +10,7 @@ usersRouter.post('/', async (request, response) => {
 
     const createUser = new CreateUserService();
 
-    const user: UserReturn = await createUser.execute({
+    const user: UserLoginParamsReturn = await createUser.execute({
       name,
       email,
       password,
