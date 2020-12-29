@@ -1,0 +1,6 @@
+export default {
+  jwt: {
+    secret: 'Secret key here',
+    expiresIn: '1d', // Token shelf life here
+  },
+};
