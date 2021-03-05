@@ -1,7 +1,8 @@
 {
   "env": {
     "es6": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "extends": [
     "airbnb-base",
@@ -23,6 +24,15 @@
     "prettier"
   ],
   "rules": {
+    "no-useless-contructor": "disabled",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "prefix": ["I"],
+        "format": ["PascalCase"]
+      }
+    ],
     "no-underscore-dangle": "off",
     "prettier/prettier": "error",
     "class-methods-use-this": "off",
